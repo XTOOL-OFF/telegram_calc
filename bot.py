@@ -12,11 +12,11 @@ def send_text(message):
 	if message.text.lower() == 'уравнение':
             send = bot.send_message(message.chat.id, "Введи уравнение!:")
             bot.register_next_step_handler(send, user_equation)
-                def user_equation():
-                    try:
-                        equation = message.text
-                        res = client.query(equation)
-                        answer = next(res.results).text
-                        bot.send_message(message.chat.id, answer)
-                    except:
-                        print("error")
+            def user_equation():
+                try:
+                    equation = message.text
+                    res = client.query(equation)
+                    answer = next(res.results).text
+                    bot.send_message(message.chat.id, answer)
+                except:
+                    print("error")
