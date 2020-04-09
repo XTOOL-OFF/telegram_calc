@@ -9,7 +9,7 @@ bot = telebot.TeleBot('964957577:AAHQlnTDLdyLxDsrnsSE8M0HcxRwMup6YDk')
 
 @bot.message_handler(content_types=['text'])
 def send_text(message):
-    def user_equation():
+    def user_equation(message):
                 try:
                     equation = message.text
                     res = client.query(equation)
