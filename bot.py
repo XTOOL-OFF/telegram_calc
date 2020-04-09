@@ -9,10 +9,7 @@ bot = telebot.TeleBot('964957577:AAHQlnTDLdyLxDsrnsSE8M0HcxRwMup6YDk')
 
 @bot.message_handler(content_types=['text'])
 def send_text(message):
-    if message.text.lower() == 'уравнение':
-            send = bot.send_message(message.chat.id, "Введи уравнение!:")
-            bot.register_next_step_handler(send, user_equation)
-            def user_equation():
+    def user_equation():
                 try:
                     equation = message.text
                     res = client.query(equation)
@@ -20,4 +17,7 @@ def send_text(message):
                     bot.send_message(message.chat.id, answer)
                 except:
                     print("error")
+    if message.text.lower() == 'уравнение':
+            send = bot.send_message(message.chat.id, "Введи уравнение!:")
+            bot.register_next_step_handler(send, user_equation)
 bot.polling(none_stop=True)
