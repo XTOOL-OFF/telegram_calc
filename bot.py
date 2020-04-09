@@ -16,3 +16,5 @@ def Equation(message):
             res = client.query(equation)
             answer = next(res.results).text
             bot.send_message(message.chat.id, answer)
+        except:
+            print("error")
